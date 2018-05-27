@@ -1,0 +1,13 @@
+<form [formGroup]="personalInfoForm" *ngIf="personalInfoForm">
+  <label class="center-block">Name:
+    <input class="form-control" formControlName="name">
+  </label>
+  <label class="center-block">Surname:
+    <input class="form-control" formControlName="surname">
+  </label>
+  <label class="center-block">Age:
+    <input class="form-control" formControlName="age" type="number">
+  </label>
+  <button (click)="save()" [disabled]="!personalInfoForm.valid" >Zapisz</button>
+  <button (click)="clear()">Wyczyść</button>
+</form>
