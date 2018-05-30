@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { AppRoutingModule } from "./app-routing.module";
 import { PreviewComponent } from './preview/preview.component';
+import {PersonalInformationService} from "./personal-information.service";
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { PreviewComponent } from './preview/preview.component';
     BrowserModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [PersonalInformationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

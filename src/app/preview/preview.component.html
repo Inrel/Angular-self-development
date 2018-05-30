@@ -1,3 +1,15 @@
-<p>
-  preview works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <div *ngIf="valueInfo">
+        <p>Imię: {{ valueInfo.name }} </p>
+        <p>Nazwisko: {{ valueInfo.surname }} </p>
+        <p>Wiek: {{ valueInfo.age }} </p>
+      </div>
+      <div *ngIf="!valueInfo">
+        <p>Proszę wypełnić formularz.</p>
+      </div>
+    </div>
+  </div>
+</div>
+

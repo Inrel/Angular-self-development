@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonalInformationService } from "../personal-information.service";
 
 @Component({
   selector: 'app-preview',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PreviewComponent implements OnInit {
 
-  constructor() { }
+  valueInfo: any = null;
+
+  constructor(private previewDataService: PersonalInformationService) { }
+
 
   ngOnInit() {
+    this.valueInfo = this.previewDataService.getPersonalInformation();
   }
 
 }

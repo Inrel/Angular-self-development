@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {PersonalInformationService} from "../personal-information.service";
 
 @Component({
   selector: 'app-form',
@@ -10,8 +11,7 @@ export class FormComponent implements OnInit {
 
   personalInfoForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
-  }
+  constructor(private formBuilder: FormBuilder, private personalDataService: PersonalInformationService) {}
 
   ngOnInit() {
     this.personalInfoForm = this.formBuilder.group(
@@ -24,11 +24,14 @@ export class FormComponent implements OnInit {
   }
 
   save(): void {
-    console.log('zapisz');
+    this.personalDataService.setPersonalInformation(this.personalInfoForm.value);
   }
 
   clear(): void {
     this.personalInfoForm.reset();
   }
 
+  hasErrors(fieldName: string): boolean {
+    return this.personalInfoForm.get(fieldName).invalid && this.personalInfoForm.get(fieldName).touched;
+  }
 }

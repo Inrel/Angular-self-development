@@ -1,2 +1,3 @@
-/*
-[class.error] = "name.invalid && nameControl.touched" - formControl*/
+.error {
+  border: 2px solid red;
+}

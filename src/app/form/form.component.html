@@ -1,13 +1,31 @@
-<form [formGroup]="personalInfoForm" *ngIf="personalInfoForm">
-  <label class="center-block">Name:
-    <input class="form-control" formControlName="name">
-  </label>
-  <label class="center-block">Surname:
-    <input class="form-control" formControlName="surname">
-  </label>
-  <label class="center-block">Age:
-    <input class="form-control" formControlName="age" type="number">
-  </label>
-  <button (click)="save()" [disabled]="!personalInfoForm.valid" >Zapisz</button>
-  <button (click)="clear()">Wyczyść</button>
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <form [formGroup]="personalInfoForm" *ngIf="personalInfoForm">
+        <div class="row">
+          <div class="col-lg-12">
+            <label class="center-block">Imię:
+              <input class="form-control" formControlName="name" [class.error]="hasErrors('name')">
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <label class="center-block">Nazwisko:
+              <input class="form-control" formControlName="surname" [class.error]="hasErrors('surname')">
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <label class="center-block">Wiek:
+              <input class="form-control" formControlName="age" type="number" [class.error]="hasErrors('age')">
+            </label>
+          </div>
+        </div>
+        <button class="btn btn-success" (click)="save()" [disabled]="!personalInfoForm.valid">Zapisz</button>
+        <button class="btn btn-danger" (click)="clear()">Wyczyść</button>
+      </form>
+    </div>
+  </div>
+</div>
